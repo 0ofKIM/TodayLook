@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		526A84972B0104360001B20A /* TodayLookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A84962B0104360001B20A /* TodayLookApp.swift */; };
-		526A84992B0104360001B20A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A84982B0104360001B20A /* ContentView.swift */; };
+		526A84992B0104360001B20A /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A84982B0104360001B20A /* MainContentView.swift */; };
 		526A849B2B0104360001B20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A849A2B0104360001B20A /* Assets.xcassets */; };
 		526A849E2B0104360001B20A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A849D2B0104360001B20A /* Preview Assets.xcassets */; };
 		526A84A62B0104C60001B20A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 526A84A52B0104C60001B20A /* ComposableArchitecture */; };
+		528C8FE02B0A12CF00C9FA57 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C8FDF2B0A12CF00C9FA57 /* SettingView.swift */; };
+		528C8FE22B0A2BE000C9FA57 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C8FE12B0A2BE000C9FA57 /* BookmarkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		526A84932B0104360001B20A /* TodayLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526A84962B0104360001B20A /* TodayLookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLookApp.swift; sourceTree = "<group>"; };
-		526A84982B0104360001B20A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		526A84982B0104360001B20A /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		526A849A2B0104360001B20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526A849D2B0104360001B20A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		528C8FDF2B0A12CF00C9FA57 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		528C8FE12B0A2BE000C9FA57 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				526A84962B0104360001B20A /* TodayLookApp.swift */,
-				526A84982B0104360001B20A /* ContentView.swift */,
+				526A84982B0104360001B20A /* MainContentView.swift */,
+				528C8FDF2B0A12CF00C9FA57 /* SettingView.swift */,
+				528C8FE12B0A2BE000C9FA57 /* BookmarkView.swift */,
+				528C8FDC2B0A11EF00C9FA57 /* View */,
 				526A849A2B0104360001B20A /* Assets.xcassets */,
 				526A849C2B0104360001B20A /* Preview Content */,
 			);
@@ -67,6 +74,14 @@
 				526A849D2B0104360001B20A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		528C8FDC2B0A11EF00C9FA57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = "퍋ㅈ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				526A84992B0104360001B20A /* ContentView.swift in Sources */,
+				528C8FE02B0A12CF00C9FA57 /* SettingView.swift in Sources */,
+				526A84992B0104360001B20A /* MainContentView.swift in Sources */,
+				528C8FE22B0A2BE000C9FA57 /* BookmarkView.swift in Sources */,
 				526A84972B0104360001B20A /* TodayLookApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -257,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
