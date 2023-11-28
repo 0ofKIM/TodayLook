@@ -89,6 +89,7 @@ iOSInjectionProject/
 Packages
 *.xcuserdata
 *.xcodeproj
+*.xcuserstate
 
 ### Xcode ###
 

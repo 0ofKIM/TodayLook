@@ -8,11 +8,21 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct MainContentView: View {    
+struct MainContentView: View {
+    let columns = [GridItem(.flexible())]
+    
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Main View")
+            ScrollView {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
+                    Text("메인 배너")
+                        .frame(width: UIScreen.main.bounds.width, height: 400)
+                        .background(Color.teal)
+                    
+                    ForEach(1...60, id: \.self) { value in
+                        Text(String(value))
+                    }
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
