@@ -22,8 +22,8 @@
 		526A84982B0104360001B20A /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		526A849A2B0104360001B20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526A849D2B0104360001B20A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "TodayLook/퍋ㅈ/Header/SettingView.swift"; sourceTree = SOURCE_ROOT; };
-		FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkView.swift; path = "TodayLook/퍋ㅈ/Header/BookmarkView.swift"; sourceTree = SOURCE_ROOT; };
+		FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = TodayLook/SettingView.swift; sourceTree = SOURCE_ROOT; };
+		FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkView.swift; path = TodayLook/BookmarkView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,8 @@
 			children = (
 				526A84962B0104360001B20A /* TodayLookApp.swift */,
 				526A84982B0104360001B20A /* MainContentView.swift */,
-				528C8FDC2B0A11EF00C9FA57 /* View */,
+				FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */,
+				FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */,
 				526A849A2B0104360001B20A /* Assets.xcassets */,
 				526A849C2B0104360001B20A /* Preview Content */,
 			);
@@ -72,23 +73,6 @@
 				526A849D2B0104360001B20A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		528C8FDC2B0A11EF00C9FA57 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FB7DEA8B2B16BA0300C22CC3 /* Header */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		FB7DEA8B2B16BA0300C22CC3 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */,
-				FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */,
-			);
-			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
