@@ -12,8 +12,11 @@
 		526A849B2B0104360001B20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A849A2B0104360001B20A /* Assets.xcassets */; };
 		526A849E2B0104360001B20A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A849D2B0104360001B20A /* Preview Assets.xcassets */; };
 		526A84A62B0104C60001B20A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 526A84A52B0104C60001B20A /* ComposableArchitecture */; };
-		FB7DEA8E2B16BBEE00C22CC3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */; };
-		FB7DEA8F2B16BBEE00C22CC3 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */; };
+		FB7DEA9E2B16C21400C22CC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEA9D2B16C21400C22CC3 /* MainView.swift */; };
+		FB7DEAA22B16C90600C22CC3 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEAA02B16C90600C22CC3 /* BookmarkView.swift */; };
+		FB7DEAA32B16C90600C22CC3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEAA12B16C90600C22CC3 /* SettingView.swift */; };
+		FB7DEAA52B171E3400C22CC3 /* WeeklyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEAA42B171E3400C22CC3 /* WeeklyWeatherView.swift */; };
+		FB7DEAA82B17286500C22CC3 /* Color_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEAA72B17286500C22CC3 /* Color_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,11 @@
 		526A84982B0104360001B20A /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		526A849A2B0104360001B20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526A849D2B0104360001B20A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "TodayLook/퍋ㅈ/Header/SettingView.swift"; sourceTree = SOURCE_ROOT; };
-		FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkView.swift; path = "TodayLook/퍋ㅈ/Header/BookmarkView.swift"; sourceTree = SOURCE_ROOT; };
+		FB7DEA9D2B16C21400C22CC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FB7DEAA02B16C90600C22CC3 /* BookmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		FB7DEAA12B16C90600C22CC3 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		FB7DEAA42B171E3400C22CC3 /* WeeklyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherView.swift; sourceTree = "<group>"; };
+		FB7DEAA72B17286500C22CC3 /* Color_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +65,8 @@
 			children = (
 				526A84962B0104360001B20A /* TodayLookApp.swift */,
 				526A84982B0104360001B20A /* MainContentView.swift */,
-				528C8FDC2B0A11EF00C9FA57 /* View */,
+				FB7DEAA62B1726B000C22CC3 /* Extension */,
+				FB7DEA982B16BD5900C22CC3 /* UI */,
 				526A849A2B0104360001B20A /* Assets.xcassets */,
 				526A849C2B0104360001B20A /* Preview Content */,
 			);
@@ -74,21 +81,55 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		528C8FDC2B0A11EF00C9FA57 /* View */ = {
+		FB02FDD42B180D3500E551DF /* SettingContents */ = {
 			isa = PBXGroup;
 			children = (
-				FB7DEA8B2B16BA0300C22CC3 /* Header */,
+				FB7DEAA12B16C90600C22CC3 /* SettingView.swift */,
 			);
-			path = View;
+			path = SettingContents;
 			sourceTree = "<group>";
 		};
-		FB7DEA8B2B16BA0300C22CC3 /* Header */ = {
+		FB02FDD52B180D5300E551DF /* BookmarkContents */ = {
 			isa = PBXGroup;
 			children = (
-				FB7DEA8D2B16BBEE00C22CC3 /* BookmarkView.swift */,
-				FB7DEA8C2B16BBEE00C22CC3 /* SettingView.swift */,
+				FB7DEAA02B16C90600C22CC3 /* BookmarkView.swift */,
 			);
-			path = Header;
+			path = BookmarkContents;
+			sourceTree = "<group>";
+		};
+		FB7DEA982B16BD5900C22CC3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FB7DEA9F2B16C41A00C22CC3 /* MainContents */,
+				FB02FDD52B180D5300E551DF /* BookmarkContents */,
+				FB02FDD42B180D3500E551DF /* SettingContents */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FB7DEA9A2B16BE4300C22CC3 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				FB7DEA9D2B16C21400C22CC3 /* MainView.swift */,
+				FB7DEAA42B171E3400C22CC3 /* WeeklyWeatherView.swift */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		FB7DEA9F2B16C41A00C22CC3 /* MainContents */ = {
+			isa = PBXGroup;
+			children = (
+				FB7DEA9A2B16BE4300C22CC3 /* Contents */,
+			);
+			path = MainContents;
+			sourceTree = "<group>";
+		};
+		FB7DEAA62B1726B000C22CC3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB7DEAA72B17286500C22CC3 /* Color_Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7DEA8F2B16BBEE00C22CC3 /* BookmarkView.swift in Sources */,
-				FB7DEA8E2B16BBEE00C22CC3 /* SettingView.swift in Sources */,
+				FB7DEAA22B16C90600C22CC3 /* BookmarkView.swift in Sources */,
+				FB7DEAA32B16C90600C22CC3 /* SettingView.swift in Sources */,
+				FB7DEAA82B17286500C22CC3 /* Color_Extension.swift in Sources */,
 				526A84992B0104360001B20A /* MainContentView.swift in Sources */,
 				526A84972B0104360001B20A /* TodayLookApp.swift in Sources */,
+				FB7DEAA52B171E3400C22CC3 /* WeeklyWeatherView.swift in Sources */,
+				FB7DEA9E2B16C21400C22CC3 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
