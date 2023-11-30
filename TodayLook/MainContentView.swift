@@ -15,54 +15,63 @@ struct MainContentView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-                    Text("메인 배너")
-                        .frame(width: UIScreen.main.bounds.width, height: 400)
-                        .background(Color.teal)
+                    MainView()
                     
-                    ForEach(1...60, id: \.self) { value in
-                        Text(String(value))
+                    ForEach(1...20, id: \.self) { value in
+                        WeeklyWeatherView()
                     }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Navigation Title")
-                            .bold()
-                            .foregroundColor(.white)
-                    }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(
-                        action: {},
-                        label: {
-                            NavigationLink(destination: SettingView()) {
-                                Text("설정")
-                                    .bold()
-                                    .foregroundColor(.white)
-                            }
-                        }
-                    )
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(
-                        action: {},
-                        label: {
-                            NavigationLink(destination: BookmarkView()) {
-                                Text("즐겨찾기")
-                                    .bold()
-                                    .foregroundColor(.white)
-                            }
-                        }
-                    )
-                }
+                settingToolbarItem
+                titleToolbarItem
+                bookmarkToolbarItem
             }
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
             .toolbarColorScheme(.light, for: .navigationBar)
         }
-        
+    }
+
+    var settingToolbarItem: ToolbarItem<(), Button<NavigationLink<Text, SettingView>>> {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button(
+                action: {},
+                label: {
+                    NavigationLink(destination: SettingView()) {
+                        Text("설정")
+                            .bold()
+                            .foregroundColor(.white)
+                    }
+                }
+            )
+        }
+    }
+
+    var titleToolbarItem: ToolbarItem<(), HStack<Text>> {
+        ToolbarItem(placement: .principal) {
+            HStack {
+                Text("Navigation Title")
+                    .bold()
+                    .foregroundColor(.white)
+            }
+        }
+    }
+
+    var bookmarkToolbarItem: ToolbarItem<(), Button<NavigationLink<Text, BookmarkView>>> {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button(
+                action: {},
+                label: {
+                    NavigationLink(destination: BookmarkView()) {
+                        Text("즐겨찾기")
+                            .bold()
+                            .foregroundColor(.white)
+                    }
+                }
+            )
+        }
     }
 }
 
