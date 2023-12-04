@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TodayLookApp: App {
@@ -13,7 +14,13 @@ struct TodayLookApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainContentView()
+            let state: MainContentFeature.State = MainContentFeature.State(weather: .sunny)
+            
+            MainContentView(
+                store: Store(initialState: state) {
+                    MainContentFeature()
+                }
+            )
         }
         .onChange(of: scenePhase) { phase in
             switch phase {
