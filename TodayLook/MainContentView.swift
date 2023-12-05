@@ -11,17 +11,14 @@ import ComposableArchitecture
 struct MainContentView: View {
     let store: StoreOf<MainContentFeature>
     let columns = [GridItem(.flexible())]
+    @State private var isPresentedSheet = true
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationView {
                 ScrollView(.vertical) {
-                    LazyVGrid(columns: columns, alignment: .center, spacing: 0) {
-                        testButton
+                    LazyVGrid(columns: columns, alignment: .center) {
                         MainView()
-                        ForEach(1...5, id: \.self) { index in
-                            WeeklyWeatherView()
-                        }
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
@@ -33,10 +30,24 @@ struct MainContentView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
                 .toolbarColorScheme(.light, for: .navigationBar)
+                .sheet(isPresented: $isPresentedSheet) {
+                    MainSheetView()
+                        .padding(.top, 30)
+                        .presentationDetents([.height(300), .height(700)])
+                        .presentationDragIndicator(.visible)
+                        .presentationCornerRadius(30)
+                        .interactiveDismissDisabled()
+                        .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+                }
+                .onAppear {
+                    print("hi")
+                    isPresentedSheet = true
+                }
             }
         }
     }
 
+    //미사용
     var testButton: some View {
         Button("(Test) Weather Change") {
             store.send(.testTapped)
@@ -47,8 +58,12 @@ struct MainContentView: View {
 
     var settingToolbarItem: ToolbarItem<(), some View> {
         ToolbarItem(placement: .navigationBarLeading) {
-            NavigationLink(destination: BookmarkView()) {
-                Text("즐겨찾기")
+            let settingView = SettingView().onAppear {
+                isPresentedSheet = false
+            }
+
+            NavigationLink(destination: settingView) {
+                Text("설정")
                     .bold()
                     .foregroundColor(.white)
             }
@@ -65,7 +80,11 @@ struct MainContentView: View {
 
     var bookmarkToolbarItem: ToolbarItem<(), some View> {
         ToolbarItem(placement: .navigationBarTrailing) {
-            NavigationLink(destination: BookmarkView()) {
+            let bookmarkView = BookmarkView().onAppear {
+                isPresentedSheet = false
+            }
+
+            NavigationLink(destination: bookmarkView) {
                 Text("즐겨찾기")
                     .bold()
                     .foregroundColor(.white)
