@@ -11,32 +11,56 @@ import ComposableArchitecture
 struct MainContentView: View {
     let store: StoreOf<MainContentFeature>
     let columns = [GridItem(.flexible())]
+    @State private var isPresentedSheet = true
+    @State private var isPresentedLeft = false
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationView {
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: columns, alignment: .center, spacing: 0) {
-                        testButton
-                        MainView()
-                        ForEach(1...5, id: \.self) { index in
-                            WeeklyWeatherView()
+                ZStack(alignment: .leading) {
+                    ScrollView(.vertical) {
+                        LazyVGrid(columns: columns, alignment: .center) {
+                            MainView()
                         }
                     }
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        settingToolbarItem
+                        titleToolbarItem
+                        bookmarkToolbarItem
+                    }
+                    .toolbarBackground(.visible, for: .navigationBar)
+                    .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
+                    .toolbarColorScheme(.light, for: .navigationBar)
+                    .sheet(isPresented: $isPresentedSheet) {
+                        MainSheetView()
+                            .padding(.top, 30)
+                            .presentationDetents([.height(300), .height(700)])
+                            .presentationDragIndicator(.visible)
+                            .presentationCornerRadius(30)
+                            .interactiveDismissDisabled()
+                            .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+                    }
+                    .onAppear { //navigation back
+                        print("ddd")
+                        isPresentedSheet = true
+                        isPresentedLeft = false
+                    }
+
+                    if isPresentedLeft {
+                        SettingView()
+                            .frame(width: 330, height: UIScreen.main.bounds.height)
+                            .background(Color.white)
+                            .transition(.move(edge: .leading))
+                            .animation(.easeInOut(duration: 0.5))
+                    }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    settingToolbarItem
-                    titleToolbarItem
-                    bookmarkToolbarItem
-                }
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
-                .toolbarColorScheme(.light, for: .navigationBar)
+                .ignoresSafeArea()
             }
         }
     }
 
+    //미사용
     var testButton: some View {
         Button("(Test) Weather Change") {
             store.send(.testTapped)
@@ -47,11 +71,13 @@ struct MainContentView: View {
 
     var settingToolbarItem: ToolbarItem<(), some View> {
         ToolbarItem(placement: .navigationBarLeading) {
-            NavigationLink(destination: BookmarkView()) {
-                Text("즐겨찾기")
-                    .bold()
-                    .foregroundColor(.white)
+            Button("설정") {
+                print("zzz")
+                isPresentedSheet = false
+                isPresentedLeft = true
             }
+            .bold()
+            .foregroundColor(.white)
         }
     }
 
@@ -65,7 +91,11 @@ struct MainContentView: View {
 
     var bookmarkToolbarItem: ToolbarItem<(), some View> {
         ToolbarItem(placement: .navigationBarTrailing) {
-            NavigationLink(destination: BookmarkView()) {
+            let bookmarkView = BookmarkView().onAppear {
+                isPresentedSheet = false
+            }
+
+            NavigationLink(destination: bookmarkView) {
                 Text("즐겨찾기")
                     .bold()
                     .foregroundColor(.white)
