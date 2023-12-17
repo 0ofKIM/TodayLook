@@ -14,8 +14,8 @@ struct MainContentView: View {
     
     @State private var settingViewX: CGFloat = 0
     
-    @State private var isPresentedSheet = true
-    @State private var isPresentedLeft = false
+    @State private var isPresentedSheet: Bool = true
+    @State private var isPresentedLeft: Bool = false
 
     var body: some View {
         let dragGesture = DragGesture()
@@ -40,18 +40,10 @@ struct MainContentView: View {
                     ZStack(alignment: .leading) {
                         ScrollView(.vertical) {
                             LazyVGrid(columns: columns, alignment: .center) {
+                                MainHeaderView(isPresentedSheet: $isPresentedSheet, isPresentedLeft: $isPresentedLeft)
                                 MainView()
                             }
                         }
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            settingToolbarItem
-                            titleToolbarItem
-                            bookmarkToolbarItem
-                        }
-                        .toolbarBackground(.visible, for: .navigationBar)
-                        .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
-                        .toolbarColorScheme(.light, for: .navigationBar)
                         .sheet(isPresented: $isPresentedSheet) {
                             MainSheetView()
                                 .padding(.top, 30)
@@ -68,11 +60,15 @@ struct MainContentView: View {
                         }
                         
                         if isPresentedLeft {
-                            SettingView()
-                                .frame(width: geometry.size.width*4/5, height: geometry.size.height)
-                                .background(Color.red)
-                                .transition(.move(edge: .leading))
-                                .offset(x: settingViewX)
+                            ZStack(alignment: .leading) {
+                                Color.black.opacity(0.3)
+                                    .ignoresSafeArea()
+                                
+                                SettingView()
+                                    .frame(width: geometry.size.width*4/5, height: geometry.size.height)
+                                    .background(Color.red)
+                                    .offset(x: settingViewX)
+                            }
                         }
                     }
                     .gesture(dragGesture)
@@ -88,41 +84,6 @@ struct MainContentView: View {
         }
         .frame(width: UIScreen.main.bounds.width, height: 30, alignment: .center)
         .background(.red)
-    }
-
-    var settingToolbarItem: ToolbarItem<(), some View> {
-        ToolbarItem(placement: .navigationBarLeading) {
-            Button("설정") {
-                withAnimation {
-                    isPresentedSheet = false
-                    isPresentedLeft = true
-                }
-            }
-            .bold()
-            .foregroundColor(.white)
-        }
-    }
-
-    var titleToolbarItem: ToolbarItem<(), some View> {
-        ToolbarItem(placement: .principal) {
-            Text("Navigation Title")
-                .bold()
-                .foregroundColor(.white)
-        }
-    }
-
-    var bookmarkToolbarItem: ToolbarItem<(), some View> {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            let bookmarkView = BookmarkView().onAppear {
-                isPresentedSheet = false
-            }
-
-            NavigationLink(destination: bookmarkView) {
-                Text("즐겨찾기")
-                    .bold()
-                    .foregroundColor(.white)
-            }
-        }
     }
 }
 
