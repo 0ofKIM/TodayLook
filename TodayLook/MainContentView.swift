@@ -14,8 +14,8 @@ struct MainContentView: View {
     
     @State private var settingViewX: CGFloat = 0
     
-    @State private var isPresentedSheet = true
-    @State private var isPresentedLeft = false
+    @State private var isPresentedSheet: Bool = true
+    @State private var isPresentedLeft: Bool = false
 
     var body: some View {
         let dragGesture = DragGesture()
@@ -40,6 +40,7 @@ struct MainContentView: View {
                     ZStack(alignment: .leading) {
                         ScrollView(.vertical) {
                             LazyVGrid(columns: columns, alignment: .center) {
+                                MainHeaderView(isPresentedSheet: $isPresentedSheet, isPresentedLeft: $isPresentedLeft)
                                 MainView()
                             }
                         }
