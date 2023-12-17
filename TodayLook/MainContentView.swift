@@ -60,11 +60,15 @@ struct MainContentView: View {
                         }
                         
                         if isPresentedLeft {
-                            SettingView()
-                                .frame(width: geometry.size.width*4/5, height: geometry.size.height)
-                                .background(Color.red)
-                                .transition(.move(edge: .leading))
-                                .offset(x: settingViewX)
+                            ZStack(alignment: .leading) {
+                                Color.black.opacity(0.3)
+                                    .ignoresSafeArea()
+                                
+                                SettingView()
+                                    .frame(width: geometry.size.width*4/5, height: geometry.size.height)
+                                    .background(Color.red)
+                                    .offset(x: settingViewX)
+                            }
                         }
                     }
                     .gesture(dragGesture)
