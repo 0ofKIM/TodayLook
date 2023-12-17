@@ -11,51 +11,72 @@ import ComposableArchitecture
 struct MainContentView: View {
     let store: StoreOf<MainContentFeature>
     let columns = [GridItem(.flexible())]
+    
+    @State private var settingViewX: CGFloat = 0
+    
     @State private var isPresentedSheet = true
     @State private var isPresentedLeft = false
 
     var body: some View {
+        let dragGesture = DragGesture()
+            .onChanged {
+                let isLeftDrag = $0.translation.width < 0
+                
+                if isLeftDrag { settingViewX = $0.translation.width }
+            }
+            .onEnded {
+                let isExitView = $0.translation.width < -100
+                
+                if isExitView {
+                    isPresentedSheet = true
+                    isPresentedLeft = false
+                }
+                settingViewX = 0
+            }
+        
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            NavigationView {
-                ZStack(alignment: .leading) {
-                    ScrollView(.vertical) {
-                        LazyVGrid(columns: columns, alignment: .center) {
-                            MainView()
+            GeometryReader { geometry in
+                NavigationView {
+                    ZStack(alignment: .leading) {
+                        ScrollView(.vertical) {
+                            LazyVGrid(columns: columns, alignment: .center) {
+                                MainView()
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            settingToolbarItem
+                            titleToolbarItem
+                            bookmarkToolbarItem
+                        }
+                        .toolbarBackground(.visible, for: .navigationBar)
+                        .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
+                        .toolbarColorScheme(.light, for: .navigationBar)
+                        .sheet(isPresented: $isPresentedSheet) {
+                            MainSheetView()
+                                .padding(.top, 30)
+                                .presentationDetents([.height(300), .height(700)])
+                                .presentationDragIndicator(.visible)
+                                .presentationCornerRadius(30)
+                                .interactiveDismissDisabled()
+                                .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+                        }
+                        .onAppear { //navigation back
+                            print("ddd")
+                            isPresentedSheet = true
+                            isPresentedLeft = false
+                        }
+                        
+                        if isPresentedLeft {
+                            SettingView()
+                                .frame(width: geometry.size.width*4/5, height: geometry.size.height)
+                                .background(Color.red)
+                                .transition(.move(edge: .leading))
+                                .offset(x: settingViewX)
                         }
                     }
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        settingToolbarItem
-                        titleToolbarItem
-                        bookmarkToolbarItem
-                    }
-                    .toolbarBackground(.visible, for: .navigationBar)
-                    .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
-                    .toolbarColorScheme(.light, for: .navigationBar)
-                    .sheet(isPresented: $isPresentedSheet) {
-                        MainSheetView()
-                            .padding(.top, 30)
-                            .presentationDetents([.height(300), .height(700)])
-                            .presentationDragIndicator(.visible)
-                            .presentationCornerRadius(30)
-                            .interactiveDismissDisabled()
-                            .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
-                    }
-                    .onAppear { //navigation back
-                        print("ddd")
-                        isPresentedSheet = true
-                        isPresentedLeft = false
-                    }
-
-                    if isPresentedLeft {
-                        SettingView()
-                            .frame(width: 330, height: UIScreen.main.bounds.height)
-                            .background(Color.white)
-                            .transition(.move(edge: .leading))
-                            .animation(.easeInOut(duration: 0.5))
-                    }
+                    .gesture(dragGesture)
                 }
-                .ignoresSafeArea()
             }
         }
     }
@@ -72,9 +93,10 @@ struct MainContentView: View {
     var settingToolbarItem: ToolbarItem<(), some View> {
         ToolbarItem(placement: .navigationBarLeading) {
             Button("설정") {
-                print("zzz")
-                isPresentedSheet = false
-                isPresentedLeft = true
+                withAnimation {
+                    isPresentedSheet = false
+                    isPresentedLeft = true
+                }
             }
             .bold()
             .foregroundColor(.white)
