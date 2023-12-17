@@ -43,15 +43,6 @@ struct MainContentView: View {
                                 MainView()
                             }
                         }
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            settingToolbarItem
-                            titleToolbarItem
-                            bookmarkToolbarItem
-                        }
-                        .toolbarBackground(.visible, for: .navigationBar)
-                        .toolbarBackground(Color(uiColor: .systemBlue), for: .navigationBar)
-                        .toolbarColorScheme(.light, for: .navigationBar)
                         .sheet(isPresented: $isPresentedSheet) {
                             MainSheetView()
                                 .padding(.top, 30)
@@ -88,41 +79,6 @@ struct MainContentView: View {
         }
         .frame(width: UIScreen.main.bounds.width, height: 30, alignment: .center)
         .background(.red)
-    }
-
-    var settingToolbarItem: ToolbarItem<(), some View> {
-        ToolbarItem(placement: .navigationBarLeading) {
-            Button("설정") {
-                withAnimation {
-                    isPresentedSheet = false
-                    isPresentedLeft = true
-                }
-            }
-            .bold()
-            .foregroundColor(.white)
-        }
-    }
-
-    var titleToolbarItem: ToolbarItem<(), some View> {
-        ToolbarItem(placement: .principal) {
-            Text("Navigation Title")
-                .bold()
-                .foregroundColor(.white)
-        }
-    }
-
-    var bookmarkToolbarItem: ToolbarItem<(), some View> {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            let bookmarkView = BookmarkView().onAppear {
-                isPresentedSheet = false
-            }
-
-            NavigationLink(destination: bookmarkView) {
-                Text("즐겨찾기")
-                    .bold()
-                    .foregroundColor(.white)
-            }
-        }
     }
 }
 
