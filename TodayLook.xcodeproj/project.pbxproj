@@ -17,6 +17,8 @@
 		FB2D7ED62B2FBBD100874323 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB2D7ECD2B2FBBD100874323 /* Pretendard-SemiBold.otf */; };
 		FB2D7ED82B2FBBD100874323 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB2D7ECF2B2FBBD100874323 /* Pretendard-Regular.otf */; };
 		FB2D7EDD2B2FC1F400874323 /* Font_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2D7EDC2B2FC1F400874323 /* Font_Extension.swift */; };
+		FB5C2A392B351216009F2E5B /* DimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C2A382B351216009F2E5B /* DimView.swift */; };
+		FB5C2A3B2B351275009F2E5B /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C2A3A2B351275009F2E5B /* MainHeaderView.swift */; };
 		FB7DEA9E2B16C21400C22CC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEA9D2B16C21400C22CC3 /* MainView.swift */; };
 		FB7DEAA22B16C90600C22CC3 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEAA02B16C90600C22CC3 /* BookmarkView.swift */; };
 		FB7DEAA32B16C90600C22CC3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEAA12B16C90600C22CC3 /* SettingView.swift */; };
@@ -37,6 +39,8 @@
 		FB2D7ECF2B2FBBD100874323 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		FB2D7ED92B2FBCF000874323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FB2D7EDC2B2FC1F400874323 /* Font_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font_Extension.swift; sourceTree = "<group>"; };
+		FB5C2A382B351216009F2E5B /* DimView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimView.swift; sourceTree = "<group>"; };
+		FB5C2A3A2B351275009F2E5B /* MainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		FB7DEA9D2B16C21400C22CC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FB7DEAA02B16C90600C22CC3 /* BookmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		FB7DEAA12B16C90600C22CC3 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -131,9 +135,18 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		FB5C2A372B351216009F2E5B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FB5C2A382B351216009F2E5B /* DimView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		FB7DEA982B16BD5900C22CC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FB5C2A372B351216009F2E5B /* Common */,
 				FB7DEA9F2B16C41A00C22CC3 /* MainContents */,
 				FB02FDD52B180D5300E551DF /* BookmarkContents */,
 				FB02FDD42B180D3500E551DF /* SettingContents */,
@@ -144,6 +157,7 @@
 		FB7DEA9A2B16BE4300C22CC3 /* Contents */ = {
 			isa = PBXGroup;
 			children = (
+				FB5C2A3A2B351275009F2E5B /* MainHeaderView.swift */,
 				FB7DEA9D2B16C21400C22CC3 /* MainView.swift */,
 				FBF4C1692B1F055C004781D0 /* MainSheetView.swift */,
 				FB7DEAA42B171E3400C22CC3 /* WeeklyWeatherView.swift */,
@@ -251,8 +265,10 @@
 				FB7DEAA22B16C90600C22CC3 /* BookmarkView.swift in Sources */,
 				FB7DEAA32B16C90600C22CC3 /* SettingView.swift in Sources */,
 				FB7DEAA82B17286500C22CC3 /* Color_Extension.swift in Sources */,
+				FB5C2A392B351216009F2E5B /* DimView.swift in Sources */,
 				526A84992B0104360001B20A /* MainContentView.swift in Sources */,
 				FB2D7EDD2B2FC1F400874323 /* Font_Extension.swift in Sources */,
+				FB5C2A3B2B351275009F2E5B /* MainHeaderView.swift in Sources */,
 				526A84972B0104360001B20A /* TodayLookApp.swift in Sources */,
 				FB7DEAA52B171E3400C22CC3 /* WeeklyWeatherView.swift in Sources */,
 				FB7DEA9E2B16C21400C22CC3 /* MainView.swift in Sources */,
