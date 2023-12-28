@@ -11,7 +11,8 @@ import ComposableArchitecture
 @main
 struct TodayLookApp: App {
     @Environment(\.scenePhase) var scenePhase
-    
+    var network = RequestAPI()
+
     var body: some Scene {
         WindowGroup {
             let state: MainContentFeature.State = MainContentFeature.State(weather: .sunny)
@@ -21,6 +22,7 @@ struct TodayLookApp: App {
                     MainContentFeature()
                 }
             )
+            .environmentObject(network)
         }
         .onChange(of: scenePhase) { phase in
             switch phase {

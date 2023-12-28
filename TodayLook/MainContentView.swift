@@ -11,7 +11,9 @@ import ComposableArchitecture
 struct MainContentView: View {
     let store: StoreOf<MainContentFeature>
     let columns = [GridItem(.flexible())]
-    
+
+    @EnvironmentObject var network: RequestAPI
+
     @State private var settingViewX: CGFloat = 0
     
     @State private var isPresentedSheet: Bool = true
@@ -74,6 +76,9 @@ struct MainContentView: View {
                     .gesture(dragGesture)
                 }
             }
+        }
+        .onAppear {
+            network.getWeather()
         }
     }
 
