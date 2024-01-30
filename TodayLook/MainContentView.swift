@@ -65,7 +65,7 @@ struct MainContentView: View {
                                     .ignoresSafeArea()
                                 
                                 SettingView()
-                                    .frame(width: geometry.size.width*4/5, height: geometry.size.height)
+                                    .frame(width: geometry.size.width*3/4, height: geometry.size.height)
                                     .background(Color.red)
                                     .offset(x: settingViewX)
                             }
