@@ -12,6 +12,11 @@
 		526A849B2B0104360001B20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A849A2B0104360001B20A /* Assets.xcassets */; };
 		526A849E2B0104360001B20A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526A849D2B0104360001B20A /* Preview Assets.xcassets */; };
 		526A84A62B0104C60001B20A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 526A84A52B0104C60001B20A /* ComposableArchitecture */; };
+		5282A2D52B94BE7700DB6ECF /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282A2D42B94BE7700DB6ECF /* APIClient.swift */; };
+		5282A2D72B94BE9100DB6ECF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5282A2D62B94BE9100DB6ECF /* Property List.plist */; };
+		5282A2D92B94BEAE00DB6ECF /* Bundle_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282A2D82B94BEAE00DB6ECF /* Bundle_Extension.swift */; };
+		5282A2DD2B94BEDD00DB6ECF /* ReverseGeoCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282A2DB2B94BEDD00DB6ECF /* ReverseGeoCodeModel.swift */; };
+		5282A2DE2B94BEDD00DB6ECF /* OAuthTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282A2DC2B94BEDD00DB6ECF /* OAuthTokenModel.swift */; };
 		FB2D7ED02B2FBBD100874323 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB2D7EC72B2FBBD000874323 /* Pretendard-Bold.otf */; };
 		FB2D7ED42B2FBBD100874323 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB2D7ECB2B2FBBD000874323 /* Pretendard-Medium.otf */; };
 		FB2D7ED62B2FBBD100874323 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB2D7ECD2B2FBBD100874323 /* Pretendard-SemiBold.otf */; };
@@ -33,6 +38,11 @@
 		526A84982B0104360001B20A /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		526A849A2B0104360001B20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526A849D2B0104360001B20A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5282A2D42B94BE7700DB6ECF /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		5282A2D62B94BE9100DB6ECF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		5282A2D82B94BEAE00DB6ECF /* Bundle_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle_Extension.swift; sourceTree = "<group>"; };
+		5282A2DB2B94BEDD00DB6ECF /* ReverseGeoCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseGeoCodeModel.swift; sourceTree = "<group>"; };
+		5282A2DC2B94BEDD00DB6ECF /* OAuthTokenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthTokenModel.swift; sourceTree = "<group>"; };
 		FB2D7EC72B2FBBD000874323 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		FB2D7ECB2B2FBBD000874323 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		FB2D7ECD2B2FBBD100874323 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -64,6 +74,7 @@
 		526A848A2B0104360001B20A = {
 			isa = PBXGroup;
 			children = (
+				5282A2D62B94BE9100DB6ECF /* Property List.plist */,
 				526A84952B0104360001B20A /* TodayLook */,
 				526A84942B0104360001B20A /* Products */,
 			);
@@ -80,6 +91,7 @@
 		526A84952B0104360001B20A /* TodayLook */ = {
 			isa = PBXGroup;
 			children = (
+				5282A2DA2B94BEDD00DB6ECF /* DataModel */,
 				FB2D7ED92B2FBCF000874323 /* Info.plist */,
 				526A84962B0104360001B20A /* TodayLookApp.swift */,
 				526A84982B0104360001B20A /* MainContentView.swift */,
@@ -98,6 +110,15 @@
 				526A849D2B0104360001B20A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5282A2DA2B94BEDD00DB6ECF /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				5282A2DB2B94BEDD00DB6ECF /* ReverseGeoCodeModel.swift */,
+				5282A2DC2B94BEDD00DB6ECF /* OAuthTokenModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		FB02FDD42B180D3500E551DF /* SettingContents */ = {
@@ -119,6 +140,7 @@
 		FB2D7EC52B2FB78B00874323 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				5282A2D42B94BE7700DB6ECF /* APIClient.swift */,
 				FB2D7EC62B2FB99E00874323 /* Font */,
 			);
 			path = Util;
@@ -176,6 +198,7 @@
 		FB7DEAA62B1726B000C22CC3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5282A2D82B94BEAE00DB6ECF /* Bundle_Extension.swift */,
 				FB7DEAA72B17286500C22CC3 /* Color_Extension.swift */,
 				FB2D7EDC2B2FC1F400874323 /* Font_Extension.swift */,
 			);
@@ -247,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2D7ED42B2FBBD100874323 /* Pretendard-Medium.otf in Resources */,
+				5282A2D72B94BE9100DB6ECF /* Property List.plist in Resources */,
 				526A849E2B0104360001B20A /* Preview Assets.xcassets in Resources */,
 				FB2D7ED02B2FBBD100874323 /* Pretendard-Bold.otf in Resources */,
 				FB2D7ED62B2FBBD100874323 /* Pretendard-SemiBold.otf in Resources */,
@@ -266,13 +290,17 @@
 				FB7DEAA32B16C90600C22CC3 /* SettingView.swift in Sources */,
 				FB7DEAA82B17286500C22CC3 /* Color_Extension.swift in Sources */,
 				FB5C2A392B351216009F2E5B /* DimView.swift in Sources */,
+				5282A2DE2B94BEDD00DB6ECF /* OAuthTokenModel.swift in Sources */,
 				526A84992B0104360001B20A /* MainContentView.swift in Sources */,
 				FB2D7EDD2B2FC1F400874323 /* Font_Extension.swift in Sources */,
 				FB5C2A3B2B351275009F2E5B /* MainHeaderView.swift in Sources */,
+				5282A2DD2B94BEDD00DB6ECF /* ReverseGeoCodeModel.swift in Sources */,
 				526A84972B0104360001B20A /* TodayLookApp.swift in Sources */,
 				FB7DEAA52B171E3400C22CC3 /* WeeklyWeatherView.swift in Sources */,
 				FB7DEA9E2B16C21400C22CC3 /* MainView.swift in Sources */,
 				FBF4C16A2B1F055C004781D0 /* MainSheetView.swift in Sources */,
+				5282A2D92B94BEAE00DB6ECF /* Bundle_Extension.swift in Sources */,
+				5282A2D52B94BE7700DB6ECF /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +433,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayLook/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 날씨 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,6 +464,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayLook/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 날씨 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

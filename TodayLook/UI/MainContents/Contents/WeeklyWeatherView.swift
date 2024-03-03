@@ -17,7 +17,7 @@ struct WeeklyWeatherView: View {
         .padding(.horizontal, 12)
         .padding(.vertical, 14)
         .frame(width: 350, alignment: .center)
-        .background(Color.gray01)
+        .background(Color.Gray01)
         .cornerRadius(12)
     }
 
@@ -25,7 +25,7 @@ struct WeeklyWeatherView: View {
         HStack(alignment: .center) {
             Text("15일 (토)")
                 .font(Font.custom("Pretendard", size: 14))
-                .foregroundColor(.gray08)
+                .foregroundColor(.Gray08)
             Spacer()
             Rectangle()
                 .foregroundColor(.clear)
@@ -44,11 +44,11 @@ struct WeeklyWeatherView: View {
         HStack(alignment: .center) {
             Text("최저 20")
                 .font(Font.custom("Pretendard", size: 14))
-                .foregroundColor(.gray08)
+                .foregroundColor(.Gray08)
             Spacer()
             Text("최고 27")
                 .font(Font.custom("Pretendard", size: 14))
-                .foregroundColor(.gray08)
+                .foregroundColor(.Gray08)
         }
         .padding(0)
         .frame(width: 115, alignment: .center)
