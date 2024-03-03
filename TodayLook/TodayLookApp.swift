@@ -26,6 +26,7 @@ struct TodayLookApp: App {
             switch phase {
             case .active:
                 print("켜짐")
+                APIClient.shared.fetchOAuthToken()
             case .inactive:
                 print("꺼짐")
             case .background:
