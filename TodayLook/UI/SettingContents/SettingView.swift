@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct SettingView: View {
+    @State var area: String = ""
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(alignment: .center, spacing: 0) {
@@ -19,10 +22,10 @@ struct SettingView: View {
                 Spacer()
                 
                 Button(action: {
-                    print("Hi")
+                    getLocation()
                 }, label: {
                     HStack(alignment: .center, spacing: 0) {
-                        Text("서울특별시 광진구")
+                        Text(area)
                             .font(Font.custom("Pretendard", size: 16))
                             .lineLimit(1)
                             .multilineTextAlignment(.center)
@@ -57,6 +60,46 @@ struct SettingView: View {
         .padding(.bottom, 0)
         .frame(width: 296, height: 844, alignment: .topLeading)
         .background(Color.Gray01)
+        .onAppear {
+            getLocation()
+        }
+    }
+}
+
+extension SettingView {
+    func getLocation() {
+        // 위치 사용 권한 설정 확인
+        let locationManager = CLLocationManager()
+        let authorizationStatus = locationManager.authorizationStatus
+        
+        // 항상 허용 || 앱 사용 시 허용
+        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+            let coordinate = locationManager.location?.coordinate
+            let latitude = coordinate?.latitude ?? 0.0
+            let longitude = coordinate?.longitude ?? 0.0
+            
+            APIClient.shared.fetchReverseGeocoding(x: longitude, y: latitude) { area in
+                self.area = area
+            }
+        }
+        
+        // 권한 거부
+        else if authorizationStatus == .denied {
+            area = "서울특별시 중구"
+            // TODO: 팝업으로 권한 확인해야할듯
+            // 앱 설정화면으로 이동
+            DispatchQueue.main.async {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+        }
+        
+        // 위치 사용 권한 대기 상태
+        else if authorizationStatus == .restricted || authorizationStatus == .notDetermined {
+            area = "서울특별시 중구"
+            // 권한 요청 팝업창
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 }
 
